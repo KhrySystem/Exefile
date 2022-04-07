@@ -14,7 +14,6 @@ namespace Dragon {
         public:
             VulkanManager();
 
-            bool createInstance();
             bool createDebugInfo();
             bool setupDebug();
 

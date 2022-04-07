@@ -1,11 +1,7 @@
 #include "VulkanManager.hpp"
 
 Dragon::VulkanManager::VulkanManager() {
-
-}
-
-bool Dragon::VulkanManager::createInstance() {
-    VkApplicationInfo appInfo{};
+     VkApplicationInfo appInfo{};
     appInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
     appInfo.pApplicationName = "Hello Triangle";
     appInfo.applicationVersion = VK_MAKE_VERSION(1, 0, 0);
@@ -27,11 +23,10 @@ bool Dragon::VulkanManager::createInstance() {
     createInfo.enabledLayerCount = 0;
 
     if (vkCreateInstance(&createInfo, nullptr, &instance) != VK_SUCCESS)
-        return false;
-        
-    return true;
+        std::cerr << "Potential issue with vkCreateInstance" << std::endl;
 }
 
+
 Dragon::VulkanManager::~VulkanManager() {
-    VkDestroyInstance(instance);
+    vkDestroyInstance(instance, nullptr);
 }
