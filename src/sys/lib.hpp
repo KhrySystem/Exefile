@@ -10,6 +10,7 @@
 #include <iostream>
 #include <map>
 #include <stdexcept>
+#define GLM_SWIZZLE_XYZW
 #include <glm.hpp>
 
 #endif
