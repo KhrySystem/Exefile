@@ -9,14 +9,11 @@ using namespace Dragon;
 #endif
 
 int main() {
-    WindowManager* wm = new WindowManager();
-    VulkanManager* vm = new VulkanManager();
-    wm->createWindow();
+    DgInstance* instance = new DgInstance();
 
-    while(wm->update()) {
+    while(instance->wm->update()) {
         glfwPollEvents();
     }
 
-    delete wm;
-    delete vm;
+    delete instance;
 }
