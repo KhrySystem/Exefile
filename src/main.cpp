@@ -14,7 +14,7 @@ int main() {
     wm->createWindow();
 
     while(wm->update()) {
-
+        glfwPollEvents();
     }
 
     delete wm;

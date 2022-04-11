@@ -1,7 +1,7 @@
 #ifndef GPU_MANAGER_HPP
 #define GPU_MANAGER_HPP
 
-#include <VkInstanceRefrence.hpp>
+#include <VkInstanceReference.hpp>
 #include <lib.hpp>
 
 namespace Dragon {

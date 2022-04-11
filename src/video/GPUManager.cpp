@@ -21,3 +21,7 @@ VkPhysicalDevice* Dragon::GPUManager::getDevices() {
 int* Dragon::GPUManager::getScores() {
     return scores.data();
 }
+
+Dragon::GPUManager::~GPUManager() {
+    std::cerr << "Potential Resource Issue: GPUManager deleted." << std::endl;
+}

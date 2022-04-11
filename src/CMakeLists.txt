@@ -1,8 +1,7 @@
 cmake_minimum_required(VERSION 3.22)
 
-set(DEBUG 1)
-
-configure_file(config.h.in config.h)
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_C_STANDARD 23)
 
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)

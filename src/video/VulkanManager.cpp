@@ -1,5 +1,7 @@
 #include "VulkanManager.hpp"
 
+using namespace Dragon;
+
 Dragon::VulkanManager::VulkanManager() {
      VkApplicationInfo appInfo{};
     appInfo.sType = VK_STRUCTURE_TYPE_APPLICATION_INFO;
@@ -31,4 +33,5 @@ Dragon::VulkanManager::VulkanManager() {
 
 Dragon::VulkanManager::~VulkanManager() {
     vkDestroyInstance(Dragon::instance, nullptr);
+    delete gm;
 }
