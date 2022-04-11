@@ -13,11 +13,14 @@ find_package(Vulkan REQUIRED)
 link_libraries(Vulkan::Vulkan)
 link_libraries(Vulkan::Headers)
 
-add_subdirectory(../lib/glfw ../bin/lib)
+add_subdirectory(../lib/glfw ../bin/lib/glfw)
+add_subdirectory(../lib/glm ../bin/lib/glm)
 
 include_directories(../lib/glfw)
 include_directories(../lib/glfw/include)
 include_directories(../lib/glfw/src)
+
+include_directories(../lib/glm/glm)
 
 link_libraries(glfw)
 
