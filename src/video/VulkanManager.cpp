@@ -22,11 +22,13 @@ Dragon::VulkanManager::VulkanManager() {
 
     createInfo.enabledLayerCount = 0;
 
-    if (vkCreateInstance(&createInfo, nullptr, &instance) != VK_SUCCESS)
-        std::cerr << "Potential issue with vkCreateInstance" << std::endl;
+    if (vkCreateInstance(&createInfo, nullptr, &Dragon::instance) != VK_SUCCESS)
+        std::cerr << "Issue with vkCreateInstance" << std::endl;
+
+    if(gm->getBestDevice() == VK_NULL_HANDLE)
+        std::cerr << "No Physical Device found." << std::endl;
 }
 
-
 Dragon::VulkanManager::~VulkanManager() {
-    vkDestroyInstance(instance, nullptr);
+    vkDestroyInstance(Dragon::instance, nullptr);
 }

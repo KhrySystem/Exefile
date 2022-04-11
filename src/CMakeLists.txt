@@ -23,11 +23,13 @@ include_directories(../lib/glfw/src)
 link_libraries(glfw)
 
 include_directories(video)
+include_directories(/)
 
 set(
     VIDEO_SRC 
     video/WindowManager.cpp
     video/VulkanManager.cpp
+    video/GPUManager.cpp
 )
 
 set(FILES ${VIDEO_SRC})

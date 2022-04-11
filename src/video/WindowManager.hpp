@@ -1,7 +1,7 @@
 #ifndef WINDOW_MANAGER_HPP
 #define WINDOW_MANAGER_HPP
 
-#include <GLFW/glfw3.h>
+#include <lib.hpp>
 
 namespace Dragon {
     class WindowManager {

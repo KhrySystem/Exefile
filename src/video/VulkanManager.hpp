@@ -1,13 +1,10 @@
 #ifndef VULKAN_MANAGER_HPP
 #define VULKAN_MANAGER_HPP
 
-#ifndef GLFW_INCLUDE_VULKAN
-    #define GLFW_INCLUDE_VULKAN
-#endif
+#include <lib.hpp>
+#include <VkInstanceRefrence.hpp>
 
-#include <GLFW/glfw3.h>
-#include <vector>
-#include <iostream>
+#include "GPUManager.hpp"
 
 namespace Dragon {
     class VulkanManager {
@@ -19,8 +16,8 @@ namespace Dragon {
 
             ~VulkanManager();
 
-        private:
-            VkInstance instance;
+            GPUManager* gm = new GPUManager();
+
     };
 };
 
