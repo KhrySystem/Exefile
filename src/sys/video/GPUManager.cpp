@@ -3,6 +3,14 @@
 Dragon::GPUManager::GPUManager() {
     VkPhysicalDevice device = VK_NULL_HANDLE;
 
+    updateGPUList
+}
+
+VkPhysicalDevice* Dragon::GPUManager::getDevices() {
+    return devices.data();
+}
+
+void Dragon::GPUManager::updateGPUList() {
     uint32_t deviceCount = 0;
     vkEnumeratePhysicalDevices(Dragon::instance, &deviceCount, nullptr);
 
@@ -11,11 +19,13 @@ Dragon::GPUManager::GPUManager() {
 
     devices.resize(deviceCount);
 
-    vkEnumeratePhysicalDevices(instance, &deviceCount, devices.data());
+    vkEnumeratePhysicalDevices(Dragon::instance, &deviceCount, devices.data());
 }
 
-VkPhysicalDevice* Dragon::GPUManager::getDevices() {
-    return devices.data();
+VkPhysicalDevice* Dragon::GPUManager::getBestDevice() {
+    updateGPUList();
+
+    return devices.at(0);
 }
 
 int* Dragon::GPUManager::getScores() {

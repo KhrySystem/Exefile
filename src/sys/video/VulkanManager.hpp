@@ -16,8 +16,6 @@ namespace Dragon {
 
             ~VulkanManager();
 
-            VkInstance Dragon::instance;
-
             GPUManager* gm = new GPUManager();
 
     };

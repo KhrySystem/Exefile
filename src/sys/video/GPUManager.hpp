@@ -13,7 +13,7 @@ namespace Dragon {
             VkPhysicalDevice* getDevices();
             int* getScores();
 
-            VkInstance Dragon::instance;
+            void updateGPUList();
 
             int rateDeviceSutability(VkPhysicalDevice device);
 
