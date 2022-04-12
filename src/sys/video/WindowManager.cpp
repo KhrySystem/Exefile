@@ -26,6 +26,10 @@ bool Dragon::WindowManager::update() {
     return true;
 }
 
+double Dragon::WindowManager::getTime() {
+    return time;
+}
+
 void Dragon::WindowManager::closeWindow() {
     glfwDestroyWindow(window);
 }

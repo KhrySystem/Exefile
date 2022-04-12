@@ -11,12 +11,16 @@ namespace Dragon {
             bool createWindow();
             bool update();
 
+            double getTime();
+
             void closeWindow();
 
             ~WindowManager();
 
         private:
             GLFWwindow* window;
+
+            double time;
     };
 };
 

@@ -11,8 +11,8 @@ using namespace Dragon;
 int main() {
     DgInstance* instance = new DgInstance();
 
-    while(instance->wm->update()) {
-        glfwPollEvents();
+    while(instance->update()) {
+        
     }
 
     delete instance;

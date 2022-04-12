@@ -24,8 +24,10 @@ include_directories(../lib/glm/glm)
 
 link_libraries(glfw)
 
-include_directories(sys/video)
 include_directories(sys)
+include_directories(sys/input)
+include_directories(sys/model)
+include_directories(sys/video)
 
 set(
     VIDEO_SRC 
