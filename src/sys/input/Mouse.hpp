@@ -6,3 +6,5 @@ namespace Dragon::Input {
 
     };
 };
+
+#endif

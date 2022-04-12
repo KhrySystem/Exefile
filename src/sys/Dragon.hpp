@@ -18,17 +18,19 @@ namespace Dragon {
             }
 
             bool update() {
-                In
+                im->update();
+                return wm->update();
             }
             
             ~DgInstance() {
+                delete im;
                 delete vm;
                 delete wm;
             }
 
-            Dragon::In
-            Dragon::VulkanManager* vm = new VulkanManager;
-            Dragon::WindowManager* wm = new WindowManager;
+            InputManager* im = new InputManager;
+            VulkanManager* vm = new VulkanManager;
+            WindowManager* wm = new WindowManager;
     };
 };
 
