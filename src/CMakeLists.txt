@@ -36,7 +36,11 @@ set(
     sys/video/GPUManager.cpp
 )
 
-set(FILES ${VIDEO_SRC})
+set(
+    INPUT_SRC
+    sys/input/InputManager.cpp
+)
+
+set(FILES ${VIDEO_SRC} ${INPUT_SRC})
 
 add_executable(${PROJECT_NAME} main.cpp ${FILES})
-

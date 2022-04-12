@@ -11,9 +11,13 @@ using namespace Dragon;
 int main() {
     DgInstance* instance = new DgInstance();
 
+    instance->wm->createWindow();
+
     while(instance->update()) {
         
     }
+
+    instance->wm->closeWindow();
 
     delete instance;
 }

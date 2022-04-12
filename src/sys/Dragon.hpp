@@ -14,7 +14,7 @@ namespace Dragon {
     class DgInstance {
         public:
             DgInstance() {
-
+                std::cout << "DragonInstance created." << std::endl;
             }
 
             bool update() {
@@ -28,9 +28,9 @@ namespace Dragon {
                 delete wm;
             }
 
-            InputManager* im = new InputManager;
-            VulkanManager* vm = new VulkanManager;
-            WindowManager* wm = new WindowManager;
+            InputManager* im = new InputManager();
+            VulkanManager* vm = new VulkanManager();
+            WindowManager* wm = new WindowManager();
     };
 };
 

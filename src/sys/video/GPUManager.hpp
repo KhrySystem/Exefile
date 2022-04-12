@@ -20,8 +20,8 @@ namespace Dragon {
             ~GPUManager();
 
         private:
-            static std::vector<VkPhysicalDevice> devices;
-            static std::vector<int> scores;
+            static inline std::vector<VkPhysicalDevice> devices;
+            static inline std::vector<int> scores;
     };
 };
 

@@ -16,7 +16,7 @@ namespace Dragon {
             bool mouseButtonPressed(int button);
             bool keyPressed(int key);
             bool buttonPressed(int button);
-            double joystickAxisDistance(int joystick);
+            float joystickAxisDistance(int joystick);
 
             ~InputManager();
         private:

@@ -4,7 +4,7 @@
 #include <lib.hpp>
 
 namespace Dragon {
-     extern VkInstance instance;
+     extern __declspec(selectany) VkInstance instance = VK_NULL_HANDLE;
 };
 
 #endif
