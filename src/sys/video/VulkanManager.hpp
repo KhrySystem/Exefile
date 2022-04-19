@@ -15,7 +15,13 @@ namespace Dragon {
 
             ~VulkanManager();
 
+            static inline VkInstance getInstance() {
+                return instance;
+            }
+
             GPUManager* gm = new GPUManager();
+
+            static VkInstance instance;
 
     };
 };

@@ -3,7 +3,7 @@
 
 #include <lib.hpp>
 
-VkInstance instance;
+
 
 namespace Dragon {
 

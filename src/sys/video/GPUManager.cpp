@@ -1,4 +1,5 @@
 #include "GPUManager.hpp"
+#include <VulkanManager.hpp>
 
 Dragon::GPUManager::GPUManager() {
     VkPhysicalDevice device = VK_NULL_HANDLE;
@@ -12,14 +13,14 @@ VkPhysicalDevice* Dragon::GPUManager::getDevices() {
 
 void Dragon::GPUManager::updateGPUList() {
     uint32_t deviceCount = 0;
-    vkEnumeratePhysicalDevices(instance, &deviceCount, nullptr);
+    vkEnumeratePhysicalDevices(VulkanManager::getInstance(), &deviceCount, nullptr);
 
     if (deviceCount == 0) 
         std::cerr << "Potential RuntimeError due to no GPU detected" << std::endl;
 
     devices.resize(deviceCount);
 
-    vkEnumeratePhysicalDevices(instance, &deviceCount, devices.data());
+    vkEnumeratePhysicalDevices(VulkanManager::getInstance(), &deviceCount, devices.data());
 }
 
 VkPhysicalDevice Dragon::GPUManager::getBestDevice() {
