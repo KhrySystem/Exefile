@@ -8,7 +8,7 @@ namespace Dragon {
         public:
             WindowManager();
 
-            bool createWindow();
+            bool createWindow(int width, int height);
             bool update();
 
             double getTime();

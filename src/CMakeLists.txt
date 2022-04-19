@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.22)
 
+set(PRINT_DEBUG 0)
+
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_C_STANDARD 23)
 
@@ -28,19 +30,26 @@ include_directories(sys)
 include_directories(sys/input)
 include_directories(sys/model)
 include_directories(sys/video)
+include_directories(sys/include)
+
+include_directories(run)
 
 set(
-    VIDEO_SRC 
-    sys/video/WindowManager.cpp
-    sys/video/VulkanManager.cpp
-    sys/video/GPUManager.cpp
+	SYS_VIDEO_SRC
+	sys/video/GPUManager.cpp 
+	sys/video/VulkanManager.cpp
+	sys/video/WindowManager.cpp 
 )
 
 set(
-    INPUT_SRC
-    sys/input/InputManager.cpp
+	SYS_MODEL_SRC
 )
 
-set(FILES ${VIDEO_SRC} ${INPUT_SRC})
+set(
+	SYS_INPUT_SRC
+	sys/input/InputManager.cpp
+)
 
-add_executable(${PROJECT_NAME} main.cpp ${FILES})
+set(FILES ${SYS_VIDEO_SRC} ${SYS_MODEL_SRC} ${SYS_INPUT_SRC})
+
+add_executable(${PROJECT_NAME} main/main.cpp ${FILES})

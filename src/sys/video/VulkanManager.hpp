@@ -2,7 +2,6 @@
 #define VULKAN_MANAGER_HPP
 
 #include <lib.hpp>
-#include <VkInstanceReference.hpp>
 
 #include "GPUManager.hpp"
 

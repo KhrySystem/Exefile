@@ -6,8 +6,8 @@ Dragon::WindowManager::WindowManager() {
     glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 }
 
-bool Dragon::WindowManager::createWindow() {
-    window = glfwCreateWindow(800, 600, "Technomancy", nullptr, nullptr);
+bool Dragon::WindowManager::createWindow(int width, int height) {
+    window = glfwCreateWindow(width, height, "Technomancy", nullptr, nullptr);
 
     if(window != GLFW_FALSE) {
         return true;

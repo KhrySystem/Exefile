@@ -24,14 +24,41 @@ Dragon::VulkanManager::VulkanManager() {
 
     createInfo.enabledLayerCount = 0;
 
-    if (vkCreateInstance(&createInfo, nullptr, &Dragon::instance) != VK_SUCCESS)
-        std::cerr << "Issue with vkCreateInstance" << std::endl;
+    switch(vkCreateInstance(&createInfo, nullptr, &instance)) {
+        
+        case VK_ERROR_OUT_OF_HOST_MEMORY:
+            printf("VkCreateInstance failed due to VK_ERROR_OUT_OF_HOST_MEMORY");
+            break;
+        case VK_ERROR_OUT_OF_DEVICE_MEMORY:
+            printf("VkCreateInstance failed due to VK_ERROR_OUT_OF_DEVICE_MEMORY");
+            break;
+        case VK_ERROR_INITIALIZATION_FAILED:
+            printf("VkCreateInstance failed due to VK_ERROR_INITIALIZATION_FAILED");
+            break; 
+        case VK_ERROR_LAYER_NOT_PRESENT:
+            printf("VkCreateInstance failed due to VK_ERROR_LAYER_NOT_PRESENT");
+            break; 
+        case VK_ERROR_EXTENSION_NOT_PRESENT:
+            printf("VkCreateInstance failed due to VK_ERROR_EXTENSION_NOT_PRESENT");
+            break; 
+        case VK_ERROR_INCOMPATIBLE_DRIVER:
+            printf("VkCreateInstance failed due to VK_ERROR_INCOMPATIBLE_DRIVER");
+            break; 
+        default:
+            printf("VkCreateInstance VK_SUCCESS");
+            break;
+    }
+    
+    printf("\n");
 
     if(gm->getBestDevice() == VK_NULL_HANDLE)
-        std::cerr << "No Physical Device found." << std::endl;
+        printf("No GPU handles found.");
+    else 
+        printf("GPU Detection successful with score %s", gm->getBestScore());
+    printf("\n");
 }
 
 Dragon::VulkanManager::~VulkanManager() {
-    vkDestroyInstance(Dragon::instance, nullptr);
+    vkDestroyInstance(instance, nullptr);
     delete gm;
 }

@@ -1,10 +1,12 @@
 #ifndef GPU_MANAGER_HPP
 #define GPU_MANAGER_HPP
 
-#include <VkInstanceReference.hpp>
 #include <lib.hpp>
 
+VkInstance instance;
+
 namespace Dragon {
+
     class GPUManager {
         public:
             GPUManager();
@@ -12,6 +14,7 @@ namespace Dragon {
             VkPhysicalDevice getBestDevice();
             VkPhysicalDevice* getDevices();
             int* getScores();
+            int getBestScore();
 
             void updateGPUList();
 
