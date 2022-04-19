@@ -1,0 +1,3 @@
+1. Use classes whenever possible instead of structs
+2. Instantiate classes as a pointer and delete at program close.
+3. * is normally enough. ** and *** are too much.
