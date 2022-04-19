@@ -16,7 +16,7 @@ void Dragon::GPUManager::updateGPUList() {
     vkEnumeratePhysicalDevices(VulkanManager::getInstance(), &deviceCount, nullptr);
 
     if (deviceCount == 0) 
-        std::cerr << "Potential RuntimeError due to no GPU detected" << std::endl;
+        printf("Potential RuntimeError due to no GPU detected");
 
     devices.resize(deviceCount);
 

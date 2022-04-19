@@ -21,7 +21,7 @@ namespace Dragon {
 
             GPUManager* gm = new GPUManager();
 
-            static VkInstance instance;
+            static inline VkInstance instance = VK_NULL_HANDLE;
 
     };
 };
