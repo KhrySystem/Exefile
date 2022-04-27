@@ -7,7 +7,7 @@
 
 namespace Dragon {
 
-    class GPUManager {
+    struct GPUManager {
         public:
             GPUManager();
 
