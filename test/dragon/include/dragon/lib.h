@@ -37,7 +37,7 @@
     #include <stdio.h>
 
 
-    #if (DEBUG != 1)
+    #ifdef DEBUG
         #define dgPrintf printf
     #else
         #define dgPrintf nullptr_t
