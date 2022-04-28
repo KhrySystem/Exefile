@@ -10,4 +10,4 @@ add_subdirectory(dragon)
 
 add_executable(${PROJECT_NAME} main.c)
 
-include_directories(${PROJECT_NAME} dragon/include)
+include_directories(dragon/include)

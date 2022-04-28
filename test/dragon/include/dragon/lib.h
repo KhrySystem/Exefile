@@ -54,4 +54,6 @@
     #include <thread>
     #define DG_FALSE 0
     #define DG_TRUE 1
+
+    DGAPI VkInstance dgVkInstance;
 #endif

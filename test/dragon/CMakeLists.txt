@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 3.22)
 
 project(Dragon)
 
+find_package(Vulkan REQUIRED)
+link_libraries(Vulkan::Vulkan)
+link_libraries(Vulkan::Headers)
+
 add_subdirectory(lib/glfw)
 
 include_directories(include)
