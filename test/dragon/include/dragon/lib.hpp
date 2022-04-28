@@ -1,6 +1,9 @@
 #ifndef DRAGON_REQUIRED_LIBS_H
     #define DRAGON_REQUIRED_LIBS_H
 
+    // Comment out this line for Dragon to have no debug at all
+    #define DEBUG
+
     #if defined(_WIN32) && defined(_BUILD_DLL)
         /* We are building Dragon as a Win32 DLL */
         #define DGAPI __declspec(dllexport)
@@ -15,17 +18,11 @@
         #define DGAPI
     #endif
 
-    #ifdef __cplusplus
-        // C++ only methods and headers
-        #ifndef GLM_SWIZZLE_XYZW
-            #define GLM_SWIZZLE_XYZW
-        #endif
-        #include <glm.hpp>
-    #else
-        // C only methods and headers
+    #ifndef GLM_SWIZZLE_XYZW
+        #define GLM_SWIZZLE_XYZW
     #endif
+    #include <glm.hpp>
 
-    // Shared methods and headers
     
     #include <string>
     #include <vector>
@@ -42,18 +39,26 @@
     #else
         #define dgPrintf nullptr_t
     #endif
+    
     #ifndef GLFW_INCLUDE_VULKAN
         #define GLFW_INCLUDE_VULKAN
     #endif
     #include <glfw/glfw3.h>
+
     #include <string>
     #include <vector>
     #include <iostream>
     #include <map>
     #include <stdexcept>
     #include <thread>
-    #define DG_FALSE 0
-    #define DG_TRUE 1
+
+    #ifndef DG_FALSE
+        #define DG_FALSE 0
+    #endif
+
+    #ifndef DG_TRUE
+        #define DG_TRUE 1
+    #endif
 
     DGAPI VkInstance dgVkInstance;
 #endif

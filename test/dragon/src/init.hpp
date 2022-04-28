@@ -5,8 +5,9 @@
 
 #define DRAGON_INIT DG_FALSE 
 
-void dgInit() {
-    
+DGAPI void dgInit() {
+    if(DRAGON_INIT == DG_TRUE) return true;
+	
 }
 
 #endif

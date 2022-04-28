@@ -1,4 +1,4 @@
-#include <dragon/dragon10.h>
+#include <dragon10.h>
 
 int main(void) {
     if(!dgInit()) return 1;

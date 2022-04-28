@@ -11,15 +11,19 @@ add_subdirectory(lib/glfw)
 include_directories(include)
 include_directories(src)
 
+include_directories(lib/glfw/include)
+include_directories(lib/glm)
+
 set(
         INCLUDE_FILES
-        include/dragon/dragon10.h
-        include/dragon/lib.h
+        include/dragon/dragon10.hpp
+        include/dragon/lib.hpp
 )
 
 set(
         SRC_FILES
-        src/window.h
+        src/init.hpp
+        src/window.hpp
 )
 
 set(

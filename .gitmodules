@@ -1,7 +1,6 @@
-[submodule "lib/glfw"]
-	path = lib/glfw
+[submodule "test/dragon/lib/glfw"]
+	path = test/dragon/lib/glfw
 	url = https://github.com/glfw/glfw
-
-[submodule "lib/glm"]
-	path = lib/glm
+[submodule "test/dragon/lib/glm"]
+	path = test/dragon/lib/glm
 	url = https://github.com/g-truc/glm
