@@ -1,8 +1,9 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 
-#include <dragon/lib.h>
+#include <dragon/lib.hpp>
 
-DGAPI bool 
+DGAPI GLFWwindow* window;
+DGAPI vkInstance instance;
 
 #endif

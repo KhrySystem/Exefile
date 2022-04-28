@@ -1,10 +1,11 @@
 cmake_minimum_required(VERSION 3.22)
 
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_C_STANDARD 23)
+
 project(Dragon)
 
-find_package(Vulkan REQUIRED)
-link_libraries(Vulkan::Vulkan)
-link_libraries(Vulkan::Headers)
+include(findVulkan)
 
 add_subdirectory(lib/glfw)
 add_subdirectory(lib/glm)
@@ -13,7 +14,11 @@ include_directories(include)
 include_directories(src)
 
 include_directories(lib/glfw/include)
-include_directories(lib/glm)
+include_directories(lib/glm/glm)
+include_directories(${Vulkan_INCLUDE_DIR})
+include_directories(${Vulkan_LIBRARY})
+
+link_libraries(${Vulkan_LIBRARIES})
 
 set(
         INCLUDE_FILES
@@ -33,6 +38,6 @@ set(
         ${SRC_FILES}
 )
 
-add_library(${PROJECT_NAME} ${FILES})
+add_library(${PROJECT_NAME} STATIC ${FILES})
 
 set_target_properties(${PROJECT_NAME} PROPERTIES LINKER_LANGUAGE Cxx) 
