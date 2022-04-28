@@ -1,8 +1,7 @@
 #ifndef DRAGON_10_H
     #define DRAGON_10_H
     
-    #include <debug.h>
-    #include "lib.h"
-    #include <window.h>
-    #include <init.h>
+    #include "lib.hpp"
+    #include <window.hpp>
+    #include <init.hpp>
 #endif

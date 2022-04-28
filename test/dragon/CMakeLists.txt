@@ -7,6 +7,7 @@ link_libraries(Vulkan::Vulkan)
 link_libraries(Vulkan::Headers)
 
 add_subdirectory(lib/glfw)
+add_subdirectory(lib/glm)
 
 include_directories(include)
 include_directories(src)
