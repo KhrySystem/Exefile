@@ -1,6 +1,21 @@
-[submodule "test/dragon/lib/glfw"]
-	path = test/dragon/lib/glfw
+[submodule "src/dragon/lib/glfw"]
+	path = src/dragon/lib/glfw
 	url = https://github.com/glfw/glfw
-[submodule "test/dragon/lib/glm"]
-	path = test/dragon/lib/glm
+[submodule "src/dragon/lib/glm"]
+	path = src/dragon/lib/glm
 	url = https://github.com/g-truc/glm
+[submodule "src/dragon/lib/Vulkan-Loader"]
+	path = src/dragon/lib/Vulkan-Loader
+	url = https://github.com/KhronosGroup/Vulkan-Loader
+[submodule "src/dragon/lib/Vulkan-Headers"]
+	path = src/dragon/lib/Vulkan-Headers
+	url = https://github.com/KhronosGroup/Vulkan-Headers
+[submodule "src/dragon/lib/Vulkan-ValidationLayers"]
+	path = src/dragon/lib/Vulkan-ValidationLayers
+	url = https://github.com/KhronosGroup/Vulkan-ValidationLayers
+[submodule "src/dragon/lib/SPIRV-Headers"]
+	path = src/dragon/lib/SPIRV-Headers
+	url = https://github.com/KhronosGroup/SPIRV-Headers
+[submodule "src/dragon/lib/SPIRV-Tools"]
+	path = src/dragon/lib/SPIRV-Tools
+	url = https://github.com/KhronosGroup/SPIRV-Tools
