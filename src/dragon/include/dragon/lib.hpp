@@ -20,8 +20,6 @@
 
     #define GLM_SWIZZLE_XYZW
     #include <glm/glm.hpp>
-    
-    #include <vulkan/vulkan.hpp>
 
     #include <string>
     #include <vector>
@@ -37,6 +35,7 @@
         typedef dgPrintf nullptr_t;
     #endif
     
+    #include <vulkan/vulkan.hpp>
     #include <glfw/glfw3.h>
 
     #define DG_FALSE 0
