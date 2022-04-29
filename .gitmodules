@@ -19,3 +19,6 @@
 [submodule "src/dragon/lib/SPIRV-Tools"]
 	path = src/dragon/lib/SPIRV-Tools
 	url = https://github.com/KhronosGroup/SPIRV-Tools
+[submodule "src/dragon/lib/robin-hood-hashing"]
+	path = src/dragon/lib/robin-hood-hashing
+	url = https://github.com/martinus/robin-hood-hashing
