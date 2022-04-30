@@ -1,8 +1,13 @@
 #include <dragon/dragon10.hpp>
 
-int main(void) {
+int main() {
     dgInit();
-    if(DRAGON_INIT != DG_TRUE) return 1;
+    if(DRAGON_INIT != DG_TRUE) 
+        printf("Dragon_Init unsuccessful. Exiting. ");
+        return 1;
+
+    printf("Dragon_Init successful. Exiting.");
+    return 0;
     
-	return 0;
+	
 }

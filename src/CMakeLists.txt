@@ -4,7 +4,7 @@ set(POLICY CMP0002 NEW)
 
 set(CMAKE_Cxx_CREATE_STATIC_LIBRARY true)
 
-project(TESTEXE VERSION 1.0.0)
+project(Exefile VERSION 1.0.0)
 
 include_directories(dragon/include)
 include_directories(dragon/src)

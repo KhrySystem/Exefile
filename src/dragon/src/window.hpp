@@ -3,27 +3,16 @@
 
 #include <dragon/lib.hpp>
 
-DGAPI struct DRAGON_WINDOW {
-    GLFWwindow* window;
-    bool isFullscreen, isBordered;
-    int width, height;
-    char* title;
-} dgWindow;
+DGAPI namespace Dragon {
+    class dgWindow {
+        public:
+            dgWindow(int width, int height, std::string title, bool isFullscreen, bool isBorderless);
 
-DGAPI void setDefaultGLFWWindowHints(dgWindow* window) {
-
-}
-
-DGAPI dgWindow createWindow() {
-    dgWindow window;
-    window.width = 800;
-    window.height = 600;
-    window.window = glfwCreateWindow(window.width, window.height, window.title, NULL, NULL);
-}
-
-bool isWindowFullscreen(dgWindow* window) {
-    return window->isFullscreen;
-}
-
+        private:
+            int width, height;
+            std::string title;
+            bool isFullscreen, isBorderless;
+    };
+};
 
 #endif
