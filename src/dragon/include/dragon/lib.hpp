@@ -35,6 +35,11 @@
         typedef dgPrintf nullptr_t;
     #endif
     
+    bool print(const char* out) {
+      printf(out);
+      fflush();
+    }
+
     #include <vulkan/vulkan.hpp>
     #include <glfw/glfw3.h>
 
