@@ -35,8 +35,8 @@
         typedef dgPrintf nullptr_t;
     #endif
     
-    bool print(const char* out) {
-      printf(out);
+    bool println(const char* out) {
+      printf(out+"\n");
       fflush();
     }
 
