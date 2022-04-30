@@ -1,0 +1,38 @@
+name: Tests
+
+on:
+    push:
+        branches: [main, bleeding-edge]
+    pull_request:
+        branches: [main, bleeding-edge]
+
+env:
+    BUILD_TYPE: RelWithDebInfo
+
+jobs:
+    build_windows_static_lib:
+        name: Win32 (Windows, static, VS2019)
+        runs-on: windows-latest
+
+        steps:
+            - name: Windows Build Static Dragon
+              run: cmake /src/dragon -B build-static -G "Visual Studio 16 2019"
+              run: cmake --build build-static --parallel
+
+    build_windows_shared_lib:
+        name: Win32 (Windows, static, VS2019)
+        runs-on: windows-latest
+
+        steps:
+            - name: Windows Build Shared Dragon
+              run: cmake /src/dragon -B build-shared -G "Visual Studio 16 2019" -D BUILD_SHARED_LIBS=ON
+              run: cmake --build build-shared --parallel
+
+    build_windows_exefile:
+        name: Win32 (Windows, VS2019)
+        runs-on: windows-latest
+
+        steps:
+            - name: Windows Build Exefile
+              run: cmake /src -B build -G "Visual Studio 16 2019"
+
