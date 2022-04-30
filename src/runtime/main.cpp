@@ -3,10 +3,10 @@
 int main() {
     dgInit();
     if(DRAGON_INIT != DG_TRUE) 
-        print("Dragon_Init unsuccessful. Exiting. ");
+        println("Dragon_Init unsuccessful. Exiting. ");
         return 1;
 
-    print("Dragon_Init successful. Exiting.");
+    println("Dragon_Init successful. Exiting.");
     return 0;
     
 	
