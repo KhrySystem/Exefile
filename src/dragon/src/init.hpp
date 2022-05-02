@@ -3,18 +3,17 @@
 
 #include <dragon/lib.hpp>
 
-#define DRAGON_INIT DG_FALSE 
-#define VULKAN_INIT DG_FALSE
-
-DGAPI void initVulkan() {
-
+DGAPI void dgTerminate() {
+    glfwTerminate();
 }
 
-DGAPI void dgInit() {
-    if(DRAGON_INIT == DG_TRUE) return;
+DGAPI int dgInit() {
+    if(!glfwInit()) {
+        dgTerminate();
+        return DG_FALSE;
+    }
 
-    #undef DRAGON_INIT
-    #define DRAGON_INIT DG_TRUE
+    return DG_TRUE;
 	
 }
 

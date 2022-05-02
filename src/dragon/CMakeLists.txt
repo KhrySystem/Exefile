@@ -20,10 +20,11 @@ set(
     include/dragon/lib.hpp
     include/dragon/dragon10.hpp
     src/window.hpp
+    src/window.cpp
     src/init.hpp
 )
 
-add_library(${PROJECT_NAME} 
+add_library(${PROJECT_NAME}
     ${DRAGON_BUILD_TYPE}
         ${GENERAL_FILES}
 )
@@ -36,3 +37,12 @@ install(
         ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
         LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
 )
+
+target_link_libraries(${PROJECT_NAME} glfw)
+target_link_libraries(${PROJECT_NAME} glm)
+target_link_libraries(${PROJECT_NAME} robin_hood)
+target_link_libraries(${PROJECT_NAME} SPIRV-Headers)
+target_link_libraries(${PROJECT_NAME} SPIRV-Tools)
+target_link_libraries(${PROJECT_NAME} Vulkan::Headers)
+target_link_libraries(${PROJECT_NAME} Vulkan::Vulkan)
+target_link_libraries(${PROJECT_NAME} VkLayer_khronos_validation)

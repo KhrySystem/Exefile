@@ -2,7 +2,9 @@
     #define DRAGON_REQUIRED_LIBS_H
 
     // Comment out this line for Dragon to have no debug at all
-    #define DEBUG 
+    #ifndef DEBUG
+        #define DEBUG 
+    #endif
 
     #if defined(_WIN32) && defined(_BUILD_DLL)
         /* We are building Dragon as a Win32 DLL */
@@ -28,17 +30,6 @@
     #include <stdexcept>
     #include <thread>
     #include <stdio.h>
-
-    #ifdef DEBUG
-        void* dgPrintf = &printf;
-    #else
-        typedef dgPrintf nullptr_t;
-    #endif
-    
-    bool print(const char* out) {
-      printf(out);
-      fflush();
-    }
 
     #include <vulkan/vulkan.hpp>
     #include <glfw/glfw3.h>
