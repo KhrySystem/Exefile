@@ -19,4 +19,3 @@ add_subdirectory(dragon)
 add_executable(${PROJECT_NAME} runtime/main.cpp)
 
 target_link_libraries(${PROJECT_NAME} Dragon)
-target_link_libraries(${PROJECT_NAME} glfw)

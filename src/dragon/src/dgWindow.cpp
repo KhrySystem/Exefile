@@ -1,14 +1,17 @@
-#include "window.hpp"
+#include "dgWindow.hpp"
 
 Dragon::dgWindow::dgWindow(int width, int height, std::string title, bool isFullscreen, bool isBorderless) {
+    if(!glfwInit()) 
+        printf("GLFW Initialization failed.\n");
     this->width = width;
     this->height = height;
     this->title = title;
     this->isFullscreen = isFullscreen;
     this->isBorderless = isBorderless;
+    this->instance = new Dragon::dgVulkanInstance();
 
     int monitorcount;
-    Dragon::dgWindow::monitors = glfwGetMonitors(&monitorcount);
+    Dragon::monitors = glfwGetMonitors(&monitorcount);
     if(monitorcount == 0) 
         printf("Error with glfwGetMonitors\n");
 }
@@ -20,7 +23,7 @@ bool Dragon::dgWindow::init() {
         this->window = glfwCreateWindow(
             this->width, this->height,
             this->title.c_str(),
-            Dragon::dgWindow::monitors[0],
+            Dragon::monitors[0],
             NULL
         );
     else if(!this->isFullscreen && this->isBorderless)
@@ -55,9 +58,15 @@ void Dragon::dgWindow::closeWindow() {
 }
 
 int Dragon::dgWindow::isAlive() {
-    return glfwWindowShouldClose(this->window);
+    return !glfwWindowShouldClose(this->window);
+}
+
+void Dragon::dgWindow::getEvents() {
+	glfwPollEvents();
 }
 
 Dragon::dgWindow::~dgWindow() {
+    delete this->instance;
     this->closeWindow();
+    glfwTerminate();
 }

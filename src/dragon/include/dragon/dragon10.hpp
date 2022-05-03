@@ -2,6 +2,6 @@
     #define DRAGON_10_H
     
     #include "lib.hpp"
-    #include <window.hpp>
-    #include <init.hpp>
+    #include <dgWindow.hpp>
+    #include <dgVulkanInstance.hpp>
 #endif

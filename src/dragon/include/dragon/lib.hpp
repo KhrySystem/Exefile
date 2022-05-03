@@ -31,6 +31,7 @@
     #include <thread>
     #include <stdio.h>
 
+    #include <vulkan/vulkan_core.h>
     #include <vulkan/vulkan.hpp>
     #include <glfw/glfw3.h>
 

@@ -22,3 +22,9 @@
 [submodule "src/dragon/lib/robin-hood-hashing"]
 	path = src/dragon/lib/robin-hood-hashing
 	url = https://github.com/martinus/robin-hood-hashing
+[submodule "src/dragon/lib/Vulkan-ExtensionLayer"]
+	path = src/dragon/lib/Vulkan-ExtensionLayer
+	url = https://github.com/KhronosGroup/Vulkan-ExtensionLayer
+[submodule "src/dragon/lib/glslang"]
+	path = src/dragon/lib/glslang
+	url = https://github.com/KhronosGroup/glslang

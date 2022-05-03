@@ -2,6 +2,7 @@
 #define WINDOW_H
 
 #include <dragon/lib.hpp>
+#include "dgVulkanInstance.hpp"
 
 DGAPI namespace Dragon {
     class dgWindow {
@@ -13,6 +14,7 @@ DGAPI namespace Dragon {
             bool setFullscreen(bool isFullscreen);
             void closeWindow();
             int isAlive();
+            void getEvents();
 
             ~dgWindow();
 
@@ -21,9 +23,12 @@ DGAPI namespace Dragon {
             std::string title;
             bool isFullscreen, isBorderless;
             GLFWwindow* window;
-
-            static GLFWmonitor** monitors;
+            Dragon::dgVulkanInstance* instance;
     };
+
+    
+
+    static GLFWmonitor** monitors;
 };
 
 #endif
