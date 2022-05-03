@@ -6,6 +6,10 @@
         #define DEBUG 
     #endif
 
+    #ifndef VALIDATION_LAYERS_ENABLED
+        #define VALIDATION_LAYERS_ENABLED
+    #endif
+
     #if defined(_WIN32) && defined(_BUILD_DLL)
         /* We are building Dragon as a Win32 DLL */
         #define DGAPI __declspec(dllexport)

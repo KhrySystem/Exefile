@@ -9,6 +9,7 @@ DGAPI namespace Dragon {
 			dgVulkanInstance();
 
 			~dgVulkanInstance();
+			
 		private:
 			VkApplicationInfo appInfo{};
 			VkInstanceCreateInfo createInfo{};
