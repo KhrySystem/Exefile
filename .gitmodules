@@ -28,3 +28,6 @@
 [submodule "src/dragon/lib/glslang"]
 	path = src/dragon/lib/glslang
 	url = https://github.com/KhronosGroup/glslang
+[submodule "src/dragon/lib/pthread-win32"]
+	path = src/dragon/lib/pthread-win32
+	url = https://github.com/GerHobbelt/pthread-win32
