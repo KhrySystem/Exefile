@@ -28,6 +28,8 @@ set(
     src/dgWindow.cpp
     src/dgVulkanInstance.hpp
     src/dgVulkanInstance.cpp
+    src/dgVulkanValidationLayers.hpp
+    src/dgVulkanValidationLayers.cpp
 )
 
 add_library(${PROJECT_NAME}

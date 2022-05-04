@@ -53,57 +53,15 @@ Dragon::dgVulkanInstance::dgVulkanInstance() {
 	for(const auto &extension : this->extensions) 
 		printf("\t%s-%d\n", extension.extensionName, extension.specVersion);
 
-	this->setupDebugMessenger();
-}
-
-void Dragon::dgVulkanInstance::setupDebugMessenger() {
-	VkDebugUtilsMessengerCreateInfoEXT cInfo;
-	populateDebugMessengerCreateInfo(cInfo);
-
-	if (this->CreateDebugUtilsMessengerEXT(this->instance, &cInfo, nullptr, &this->debugMessenger) != VK_SUCCESS) {
-		throw std::runtime_error("failed to set up debug messenger!");
-	}
-}
-
-VkResult Dragon::dgVulkanInstance::CreateDebugUtilsMessengerEXT(VkInstance i, const VkDebugUtilsMessengerCreateInfoEXT* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkDebugUtilsMessengerEXT* pDebugMessenger) {
-	auto func = (PFN_vkCreateDebugUtilsMessengerEXT) vkGetInstanceProcAddr(i, "vkCreateDebugUtilsMessengerEXT");
-    if (func != nullptr) {
-        return func(i, pCreateInfo, pAllocator, pDebugMessenger);
-    } else {
-        return VK_ERROR_EXTENSION_NOT_PRESENT;
-	}
-}
-
-VkBool32 Dragon::dgVulkanInstance::debugCallback(VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity, VkDebugUtilsMessageTypeFlagsEXT messageType, const VkDebugUtilsMessengerCallbackDataEXT* pCallbackData, void* pUserData) {
-	printf("Validation Layer: %s", pCallbackData->pMessage);
-	return VK_FALSE;
-}
-
-void Dragon::dgVulkanInstance::populateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInfoEXT &cInfo) {
-	cInfo = {};
-	cInfo.sType = VK_STRUCTURE_TYPE_DEBUG_UTILS_MESSENGER_CREATE_INFO_EXT;
-	cInfo.messageSeverity = VK_DEBUG_UTILS_MESSAGE_SEVERITY_VERBOSE_BIT_EXT | VK_DEBUG_UTILS_MESSAGE_SEVERITY_WARNING_BIT_EXT | VK_DEBUG_UTILS_MESSAGE_SEVERITY_ERROR_BIT_EXT;
-	cInfo.messageType = VK_DEBUG_UTILS_MESSAGE_TYPE_GENERAL_BIT_EXT | VK_DEBUG_UTILS_MESSAGE_TYPE_VALIDATION_BIT_EXT | VK_DEBUG_UTILS_MESSAGE_TYPE_PERFORMANCE_BIT_EXT;
-	cInfo.pfnUserCallback = this->debugCallback;
-}
-
-VkResult Dragon::dgVulkanInstance::createDebugMessengerEXT(VkInstance i, const VkDebugUtilsMessengerCreateInfoEXT* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkDebugUtilsMessengerEXT* pDebugMessenger) {
-	auto func = (PFN_vkCreateDebugUtilsMessengerEXT) vkGetInstanceProcAddr(i, "vkCreateDebugUtilsMessengerEXT");
-    if (func != nullptr) {
-        return func(i, pCreateInfo, pAllocator, pDebugMessenger);
-    } else {
-        return VK_ERROR_EXTENSION_NOT_PRESENT;
-    }
-}
-
-void Dragon::dgVulkanInstance::destroyDebugUtilsMessengerEXT(VkInstance i, VkDebugUtilsMessengerEXT dMessenger, const VkAllocationCallbacks* pAllocator) {
-	auto func = (PFN_vkDestroyDebugUtilsMessengerEXT) vkGetInstanceProcAddr(i, "vkDestroyDebugUtilsMessengerEXT");
-    if (func != nullptr) {
-        func(i, dMessenger, pAllocator);
-    }
+	#ifdef DEBUG
+		this->validationLayers = new Dragon::dgVulkanValidationLayer();
+		this->validationLayers->createDebugMessenger(&this->instance);
+	#endif
 }
 
 Dragon::dgVulkanInstance::~dgVulkanInstance() {
 	vkDestroyInstance(this->instance, nullptr);
-	this->destroyDebugUtilsMessengerEXT(this->instance, this->debugMessenger, nullptr);
+	#ifdef DEBUG
+		delete this->validationLayers;
+	#endif
 }
