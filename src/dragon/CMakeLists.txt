@@ -3,13 +3,12 @@ cmake_minimum_required(VERSION 3.22)
 set(CMAKE_POLICY_DEFAULT_CMP0077 NEW)
 set(DRAGON_BUILD_TYPE "${DRAGON_BUILD_TYPE}" CACHE STRING "Dragon Build <STATIC | SHARED | OBJECT> Library Type.")
 
-project(Dragon_${CMAKE_SYSTEM_NAME}_${DRAGON_BUILD_TYPE})
+project(Dragon)
 
 set(GLFW_LIBRARY_TYPE ${DRAGON_BUILD_TYPE})
 
 set(BUILD_LAYER_SUPPORT_FILES ON)
 
-add_subdirectory(lib/pthread-win32)
 add_subdirectory(lib/glfw)
 add_subdirectory(lib/glm)
 add_subdirectory(lib/SPIRV-Headers)
