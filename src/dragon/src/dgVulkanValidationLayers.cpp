@@ -128,27 +128,31 @@ void Dragon::dgVulkanValidationLayer::populateDebugMessengerCreateInfo() {
 	this->createInfo.pfnUserCallback = this->debugCallback;
 }
 
+const char** Dragon::dgVulkanValidationLayer::getRequiredExtensions() {
+    return this->validationLayers.data();
+}
+
 VkBool32 Dragon::dgVulkanValidationLayer::debugCallback(VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity, VkDebugUtilsMessageTypeFlagsEXT messageType, const VkDebugUtilsMessengerCallbackDataEXT* pCallbackData, void* pUserData) {
     printf("Validation Layer: %s", pCallbackData->pMessage);
 	return VK_FALSE;
 }
 
 VkResult Dragon::dgVulkanValidationLayer::CreateDebugUtilsMessengerEXT(const VkDebugUtilsMessengerCreateInfoEXT* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkDebugUtilsMessengerEXT* pDebugMessenger) {
-    auto func = (PFN_vkCreateDebugUtilsMessengerEXT) vkGetInstanceProcAddr(this->pInstance, "vkCreateDebugUtilsMessengerEXT");
+    auto func = (PFN_vkCreateDebugUtilsMessengerEXT) vkGetInstanceProcAddr(*this->pInstance, "vkCreateDebugUtilsMessengerEXT");
     if (func != nullptr) {
-        return func(this->pInstance, pCreateInfo, pAllocator, pDebugMessenger);
+        return func(*this->pInstance, pCreateInfo, pAllocator, pDebugMessenger);
     } else {
         return VK_ERROR_EXTENSION_NOT_PRESENT;
 	}
 }
 
 void Dragon::dgVulkanValidationLayer::destroyDebugUtilsMessengerEXT(VkDebugUtilsMessengerEXT dMessenger, const VkAllocationCallbacks* pAllocator) {
-    auto func = (PFN_vkDestroyDebugUtilsMessengerEXT) vkGetInstanceProcAddr(this->pInstance, "vkDestroyDebugUtilsMessengerEXT");
+    auto func = (PFN_vkDestroyDebugUtilsMessengerEXT) vkGetInstanceProcAddr(*this->pInstance, "vkDestroyDebugUtilsMessengerEXT");
     if (func != nullptr) {
-        func(this->pInstance, dMessenger, pAllocator);
+        func(*this->pInstance, dMessenger, pAllocator);
     }
 }
 
 Dragon::dgVulkanValidationLayer::~dgVulkanValidationLayer() {
-    this->destroyDebugUtilsMessengerEXT();
+    this->destroyDebugUtilsMessengerEXT(this->debugMessenger, nullptr);
 }

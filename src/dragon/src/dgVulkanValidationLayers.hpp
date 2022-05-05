@@ -10,7 +10,7 @@ namespace Dragon {
 
             void createDebugMessenger(VkInstance* instance);
 
-			std::vector<const char*> getRequiredExtensions(VkInstance* instance);
+			const char** getRequiredExtensions();
 
 			VkResult createDebugMessengerEXT(VkInstance instance, const VkDebugUtilsMessengerCreateInfoEXT* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkDebugUtilsMessengerEXT* pDebugMessenger);
 			VkResult CreateDebugUtilsMessengerEXT(const VkDebugUtilsMessengerCreateInfoEXT* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkDebugUtilsMessengerEXT* pDebugMessenger); 
@@ -18,7 +18,7 @@ namespace Dragon {
 			static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity, VkDebugUtilsMessageTypeFlagsEXT messageType, const VkDebugUtilsMessengerCallbackDataEXT* pCallbackData, void* pUserData);
 
 			void populateDebugMessengerCreateInfo();
-			void destroyDebugUtilsMessengerEXT(VkInstance* instance, VkDebugUtilsMessengerEXT debugMessenger, const VkAllocationCallbacks* pAllocator);
+			void destroyDebugUtilsMessengerEXT(VkDebugUtilsMessengerEXT debugMessenger, const VkAllocationCallbacks* pAllocator);
 
             ~dgVulkanValidationLayer();
 

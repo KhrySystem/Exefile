@@ -16,7 +16,8 @@ Dragon::dgVulkanInstance::dgVulkanInstance() {
 	this->createInfo.enabledExtensionCount = this->glfwExtensionCount;
 	this->createInfo.ppEnabledExtensionNames = this->glfwExtensions;
 
-	this->createInfo.enabledLayerCount = 0;
+	this->createInfo.enabledLayerCount = 1;
+	this->createInfo.ppEnabledLayerNames = this->validationLayers->getRequiredExtensions();
 
 	switch(vkCreateInstance(&this->createInfo, nullptr, &this->instance)) {
 		case VK_SUCCESS:
@@ -51,17 +52,13 @@ Dragon::dgVulkanInstance::dgVulkanInstance() {
 	printf("Availible Extensions:\n");
 	
 	for(const auto &extension : this->extensions) 
-		printf("\t%s-%d\n", extension.extensionName, extension.specVersion);
+		printf("\t%s-Version:%d\n", extension.extensionName, extension.specVersion);
 
-	#ifdef DEBUG
-		this->validationLayers = new Dragon::dgVulkanValidationLayer();
-		this->validationLayers->createDebugMessenger(&this->instance);
-	#endif
+	this->validationLayers = new Dragon::dgVulkanValidationLayer();
+	this->validationLayers->createDebugMessenger(&this->instance);
 }
 
 Dragon::dgVulkanInstance::~dgVulkanInstance() {
 	vkDestroyInstance(this->instance, nullptr);
-	#ifdef DEBUG
-		delete this->validationLayers;
-	#endif
+	delete this->validationLayers;
 }

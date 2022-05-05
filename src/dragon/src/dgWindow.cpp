@@ -3,6 +3,8 @@
 Dragon::dgWindow::dgWindow(int width, int height, std::string title, bool isFullscreen, bool isBorderless) {
     if(!glfwInit()) 
         printf("GLFW Initialization failed.\n");
+    else
+        printf("GLFW Initialization successful.\n");
     this->width = width;
     this->height = height;
     this->title = title;
