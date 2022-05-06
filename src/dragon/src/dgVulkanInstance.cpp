@@ -8,6 +8,7 @@ Dragon::dgVulkanInstance::dgVulkanInstance() {
     this->appInfo.engineVersion = VK_MAKE_VERSION(1, 0, 0);
     this->appInfo.apiVersion = VK_API_VERSION_1_0;
 
+
 	this->createInfo.sType = VK_STRUCTURE_TYPE_INSTANCE_CREATE_INFO;
 	this->createInfo.pApplicationInfo = &this->appInfo;
 
@@ -17,6 +18,7 @@ Dragon::dgVulkanInstance::dgVulkanInstance() {
 	this->createInfo.ppEnabledExtensionNames = this->glfwExtensions;
 
 	this->createInfo.enabledLayerCount = 1;
+
 	this->createInfo.ppEnabledLayerNames = this->validationLayers->getRequiredExtensions();
 
 	switch(vkCreateInstance(&this->createInfo, nullptr, &this->instance)) {

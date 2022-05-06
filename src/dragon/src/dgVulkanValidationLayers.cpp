@@ -129,6 +129,8 @@ void Dragon::dgVulkanValidationLayer::populateDebugMessengerCreateInfo() {
 }
 
 const char** Dragon::dgVulkanValidationLayer::getRequiredExtensions() {
+    printf(" init");
+
     return this->validationLayers.data();
 }
 
