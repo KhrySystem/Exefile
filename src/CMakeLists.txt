@@ -14,7 +14,7 @@ include_directories(dragon/lib/Vulkan-Headers/include)
 include_directories(dragon/lib/glfw/include)
 include_directories(dragon/lib/glm)
 
-add_subdirectory(dragon)
+add_subdirectory(dragon SHARED)
 
 add_executable(${PROJECT_NAME} runtime/main.cpp)
 

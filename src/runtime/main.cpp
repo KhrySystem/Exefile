@@ -1,8 +1,11 @@
+#include "runtime_config.h"
+
 #include <dragon/dragon10.hpp>
 
 using namespace Dragon;
 
 int main() {
+    printf("Running");
     dgWindow* window = new dgWindow(800, 600, "Technomancy", false, false);
 
     window->init();
