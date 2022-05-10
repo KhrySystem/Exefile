@@ -1,8 +1,6 @@
 #ifndef RUNTIME_CONFIG_H
     #define RUNTIME_CONFIG_H
 
-    #define DEBUG_ENABLED
-
     #define Stringize( L )     #L 
     #define MakeString( M, L ) M(L)
     #define $Line MakeString( Stringize, __LINE__ )

@@ -3,7 +3,7 @@
 
     // Comment out this line for Dragon to have no debug at all
     #ifndef DEBUG
-        #define DEBUG 
+        #define DEBUG_ENABLED
     #endif
 
     #ifndef VALIDATION_LAYERS_ENABLED
@@ -41,4 +41,6 @@
 
     #define DG_FALSE 0
     #define DG_TRUE 1
+
+    
 #endif

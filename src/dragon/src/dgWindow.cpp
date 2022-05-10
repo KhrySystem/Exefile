@@ -16,6 +16,8 @@ Dragon::dgWindow::dgWindow(int width, int height, std::string title, bool isFull
     Dragon::monitors = glfwGetMonitors(&monitorcount);
     if(monitorcount == 0) 
         printf("Error with glfwGetMonitors\n");
+    else
+        printf("glfwGetMonitors successful\n");
 }
 
 bool Dragon::dgWindow::init() {

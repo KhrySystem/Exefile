@@ -192,15 +192,11 @@ void Dragon::dgVulkanValidationLayer::populateDebugMessengerCreateInfo() {
 }
 
 const char** Dragon::dgVulkanValidationLayer::getRequiredExtensions() {
-    printf(" init");
-
     return this->validationLayers.data();
 }
 
 VkBool32 Dragon::dgVulkanValidationLayer::debugCallback(VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity, VkDebugUtilsMessageTypeFlagsEXT messageType, const VkDebugUtilsMessengerCallbackDataEXT* pCallbackData, void* pUserData) {
-    #ifdef DEBUG_ENABLED
     printf("Validation Layer: %s", pCallbackData->pMessage);
-    #endif
 	return VK_FALSE;
 }
 

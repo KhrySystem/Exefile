@@ -5,7 +5,7 @@
 using namespace Dragon;
 
 int main() {
-    printf("Running");
+    printf("Running\n");
     dgWindow* window = new dgWindow(800, 600, "Technomancy", false, false);
 
     window->init();
